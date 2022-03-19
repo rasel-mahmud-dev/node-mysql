@@ -10,13 +10,12 @@ app.get("/", (req, res)=>{
   res.send("hi")
 })
 
-app.get("/db", ()=>{
+app.get("/d", ()=>{
   var connection = mysql.createConnection({
     host     : 'srv-captain--pfmdausrgn-mysql-80x',
     user     : 'app3-user',
     password : 'EXwU39re4nD6',
-    database: "app3-database",
-    port: 3306
+    database: "app3-database"
   });
   
   connection.connect();

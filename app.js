@@ -18,9 +18,16 @@ app.get("/d", (req, res)=>{
     database: process.env.DATABASE_NAME,
     port: process.env.DATABASE_PORT
   });
-  res.send("hgghj")
-  // connection.connect();
-  
+
+  connection.connect((err)=>{
+    if(err){
+      res.send(err.message)
+      return;
+    }
+    res.send("connected")
+
+  });
+
   // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
   //   if (error){
   //     res.send(error.message.toString());

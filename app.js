@@ -11,7 +11,8 @@ app.get("/", (req, res)=>{
 })
 
 app.get("/d", (req, res)=>{
-  var connection = mysql.createConnection({
+  try{
+  var connection = mysql.createPool({
     host     : process.env.DATABASE_HOST,
     user     : process.env.DATABASE_USERNAME,
     password : process.env.DATABASE_PASSWORD,
@@ -19,19 +20,15 @@ app.get("/d", (req, res)=>{
     port: process.env.DATABASE_PORT
   });
 
-  connection.connect((err)=>{
-    if(err){
-      res.send(err.message)
-      return;
-    }
-    connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-        if (error){
-          res.send("err");
-          return
-        }
-        res.send(results[0].solution);
-        // connection.end();
-      });
+  const promisePool = pool.promise();
+  // query database using promises
+  const [rows,fields] = await promisePool.query("SELECT 1");
+  req.json({rows: rows}) 
+
+  } catch(ex){
+    res.send(ex.message)
+  }
+    
 
   });
 

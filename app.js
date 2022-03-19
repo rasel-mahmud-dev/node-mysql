@@ -4,13 +4,15 @@ const mysql = require("mysql2")
 const PORT = process.env.PORT || 3000
 const HOST = process.env.HOST
 
+require("dotenv").config()
+
 const app = express()
 
 app.get("/", (req, res)=>{
   res.send("hi change")
 })
 
-app.get("/d", (req, res)=>{
+app.get("/d", async (req, res)=>{
   try{
   var pool = mysql.createPool({
     host     : process.env.DATABASE_HOST,
@@ -23,7 +25,7 @@ app.get("/d", (req, res)=>{
   const promisePool = pool.promise();
   // query database using promises
   const [rows,fields] = await promisePool.query("SELECT 1");
-  req.json({rows: rows}) 
+  res.json({rows: rows}) 
 
   } catch(ex){
     res.send(ex.message)
@@ -42,6 +44,5 @@ app.get("/d", (req, res)=>{
   // });
   
 
-})
 
 app.listen(PORT, HOST)

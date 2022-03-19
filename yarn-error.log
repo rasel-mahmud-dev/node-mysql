@@ -1,0 +1,43 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add express mysql
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\RaseL\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\cmd;C:\Program Files\JetBrains\WebStorm 2021.2.3\bin;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files\Redis;C:\ProgramData\chocolatey\bin;C:\Users\RaseL\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Go\bin;C:\Users\RaseL\AppData\Local\Microsoft\WindowsApps;C:\Users\RaseL\AppData\Roaming\npm;C:\Program Files\JetBrains\WebStorm 2021.3.2\bin;C:\Users\RaseL\AppData\Local\Yarn\bin;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files (x86)\heroku\bin;C:\Program Files\MongoDB\Tools\100\bin;C:\Users\RaseL\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\RaseL\go\bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  17.6.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:72:26)
+
+npm manifest: 
+  {
+    "name": "qoddi_node_app",
+    "version": "1.0.0",
+    "description": "Node.js on Qoddi",
+    "author": "First Last <first.last@example.com>",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "dev": "set NODE_ENV=development& nodemon app.js"
+    },
+    "engines": {
+  
+    },
+    "dependencies": {
+     
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

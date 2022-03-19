@@ -26,11 +26,11 @@ app.get("/d", (req, res)=>{
     }
     connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
         if (error){
-          res.send(error.message.toString());
+          res.send("err");
           return
         }
-        res.send('The solution is: ', results[0].solution);
-        connection.end();
+        res.send(results[0].solution);
+        // connection.end();
       });
 
   });

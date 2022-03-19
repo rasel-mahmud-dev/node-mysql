@@ -7,7 +7,7 @@ const HOST = process.env.HOST
 const app = express()
 
 app.get("/", (req, res)=>{
-  res.send("hi")
+  res.send("hi change")
 })
 
 app.get("/d", ()=>{

@@ -18,17 +18,17 @@ app.get("/d", (req, res)=>{
     database: process.env.DATABASE_NAME,
     port: process.env.DATABASE_PORT
   });
+  res.send("hgghj")
+  // connection.connect();
   
-  connection.connect();
-  
-  connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-    if (error){
-      res.send(error.message.toString());
-      return
-    }
-    res.send('The solution is: ', results[0].solution);
-    connection.end();
-  });
+  // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  //   if (error){
+  //     res.send(error.message.toString());
+  //     return
+  //   }
+  //   res.send('The solution is: ', results[0].solution);
+  //   connection.end();
+  // });
   
 
 })

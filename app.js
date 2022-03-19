@@ -12,7 +12,7 @@ app.get("/", (req, res)=>{
 
 app.get("/d", (req, res)=>{
   try{
-  var connection = mysql.createPool({
+  var pool = mysql.createPool({
     host     : process.env.DATABASE_HOST,
     user     : process.env.DATABASE_USERNAME,
     password : process.env.DATABASE_PASSWORD,

@@ -24,15 +24,13 @@ app.get("/d", async (req, res)=>{
 
   const promisePool = pool.promise();
   // query database using promises
-  const [rows,fields] = await promisePool.query("SELECT 1");
-  res.json({rows: rows}) 
-
+  const [rows, result] = await promisePool.query('SELECT 100 + 1 AS solution');
+    res.send(rows);
   } catch(ex){
     res.send(ex.message)
   }
-    
 
-  });
+});
 
   // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
   //   if (error){

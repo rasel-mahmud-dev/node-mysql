@@ -12,10 +12,10 @@ app.get("/", (req, res)=>{
 
 app.get("/d", ()=>{
   var connection = mysql.createConnection({
-    host     : 'srv-captain--pfmdausrgn-mysql-80x',
-    user     : 'app3-user',
-    password : 'EXwU39re4nD6',
-    database: "app3-database"
+    host     : process.env.DATABASE_HOST,
+    user     : process.env.DATABASE_USERNAME,
+    password : process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME
   });
   
   connection.connect();

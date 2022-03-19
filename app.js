@@ -6,18 +6,27 @@ const HOST = process.env.HOST
 
 const app = express()
 
-app.get("/", ()=>{
+app.get("/", (req, res)=>{
+  res.send("hi")
+})
+
+app.get("/db", ()=>{
   var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '12345'
+    host     : 'srv-captain--pfmdausrgn-mysql-80x',
+    user     : 'app3-user',
+    password : 'EXwU39re4nD6',
+    database: "app3-database",
+    port: 3306
   });
   
   connection.connect();
   
   connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
+    if (error){
+      res.send('The solution is: ', error.message);
+      return
+    }
+    res.send('The solution is: ', results[0].solution);
   });
   
   connection.end();

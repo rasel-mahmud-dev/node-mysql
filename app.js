@@ -24,7 +24,14 @@ app.get("/d", (req, res)=>{
       res.send(err.message)
       return;
     }
-    res.send("connected")
+    connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+        if (error){
+          res.send(error.message.toString());
+          return
+        }
+        res.send('The solution is: ', results[0].solution);
+        connection.end();
+      });
 
   });
 
